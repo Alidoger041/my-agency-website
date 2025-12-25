@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TechNex Solutions</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: none;
+        }
+    </style> <!-- Hide until auth check -->
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TechNex Admin</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <!-- Rendered by JS -->
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt" style="margin-right: 0.5rem;"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Dashboard Overview</h1>
+            <div style="color: var(--text-secondary);">Welcome back, <span id="admin-username">Admin</span></div>
+        </div>
+
+        <div class="grid-container">
+            <div class="card stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Messages</h3>
+                    <p id="total-contacts">-</p>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Applications</h3>
+                    <p id="total-applications">-</p>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Blog Posts</h3>
+                    <p id="total-posts">-</p>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Active Jobs</h3>
+                    <p id="total-jobs">-</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom: 1.5rem;">Recent Activity</h3>
+            <p style="color: var(--text-secondary);">Activity feed coming soon...</p>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Set active page
+        renderSidebar('admin-dashboard.html');
+
+        // Load stats
+        async function loadStats() {
+            try {
+                // We'll need to add a stats endpoint or fetch all counts
+                // For now fetching individual lists (not optimal but works for MVP)
+                const [contactsRes, appsRes, postsRes, jobsRes] = await Promise.all([
+                    fetch(`${API_CONFIG.BASE_URL}/api/admin/contacts`),
+                    fetch(`${API_CONFIG.BASE_URL}/api/admin/applications`),
+                    fetch(`${API_CONFIG.BASE_URL}/api/posts?limit=1000`), // public
+                    fetch(`${API_CONFIG.BASE_URL}/api/jobs?limit=1000`) // public
+                ]);
+
+                const contacts = await contactsRes.json();
+                const apps = await appsRes.json();
+                const posts = await postsRes.json();
+                const jobs = await jobsRes.json();
+
+                document.getElementById('total-contacts').textContent = contacts.length || 0;
+                document.getElementById('total-applications').textContent = apps.length || 0;
+                document.getElementById('total-posts').textContent = posts.posts ? posts.posts.length : 0;
+                document.getElementById('total-jobs').textContent = jobs.jobs ? jobs.jobs.length : 0;
+
+            } catch (err) {
+                console.error('Failed to load stats:', err);
+            }
+        }
+
+        loadStats();
+    </script>
+    <script src="js/admin_toggle.js"></script>
+</body>
+
+</html>

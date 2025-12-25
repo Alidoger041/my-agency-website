@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - TechNex Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TechNex Admin</h2>
+        </div>
+        <nav class="sidebar-nav"></nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt" style="margin-right: 0.5rem;"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Messages</h1>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Project Type</th>
+                        <th>Date</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="contacts-table-body">
+                    <!-- Loaded by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        renderSidebar('admin-contacts.html');
+
+        async function loadContacts() {
+            try {
+                const res = await fetch(`${API_CONFIG.BASE_URL}/api/admin/contacts`);
+                const contacts = await res.json();
+                const tbody = document.getElementById('contacts-table-body');
+
+                tbody.innerHTML = contacts.map(contact => `
+                    <tr>
+                        <td>${contact.name}</td>
+                        <td><a href="mailto:${contact.email}">${contact.email}</a></td>
+                        <td>${contact.company || '-'}</td>
+                        <td>${contact.project || '-'}</td>
+                        <td>${formatDate(contact.created_at)}</td>
+                        <td>
+                            <button class="action-btn" onclick="alert('${contact.message.replace(/'/g, "\\'")}')">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                console.error('Error loading contacts:', err);
+            }
+        }
+
+        loadContacts();
+    </script>
+    <script src="js/admin_toggle.js"></script>
+</body>
+
+</html>

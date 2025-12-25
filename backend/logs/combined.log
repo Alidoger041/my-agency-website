@@ -1,0 +1,15 @@
+2025-12-25 02:05:49 [info]: ==================================================
+2025-12-25 02:05:49 [info]: 🚀 TechNex Server running on http://localhost:5000
+2025-12-25 02:05:49 [info]: 📊 Environment: development
+2025-12-25 02:05:49 [info]: 🗄️  Database: ./technex.db
+2025-12-25 02:05:49 [info]: ==================================================
+2025-12-25 02:05:58 [info]: GET /
+2025-12-25 02:05:58 [error]: AggregateError [ECONNREFUSED]: 
+    at D:\New folder (5)\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PGStore._asyncQuery (D:\New folder (5)\node_modules\connect-pg-simple\index.js:322:21)
+2025-12-25 02:05:59 [info]: GET /favicon.ico
+2025-12-25 02:05:59 [error]: AggregateError [ECONNREFUSED]: 
+    at D:\New folder (5)\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PGStore._asyncQuery (D:\New folder (5)\node_modules\connect-pg-simple\index.js:322:21)

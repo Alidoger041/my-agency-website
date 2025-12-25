@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications - TechNex Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TechNex Admin</h2>
+        </div>
+        <nav class="sidebar-nav"></nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt" style="margin-right: 0.5rem;"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Job Applications</h1>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Applicant</th>
+                        <th>Email</th>
+                        <th>Portfolio</th>
+                        <th>Date</th>
+                        <th>Resume</th>
+                    </tr>
+                </thead>
+                <tbody id="apps-table-body">
+                    <!-- Loaded by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        renderSidebar('admin-applications.html');
+
+        async function loadApps() {
+            try {
+                const res = await fetch(`${API_CONFIG.BASE_URL}/api/admin/applications`);
+                const apps = await res.json();
+                const tbody = document.getElementById('apps-table-body');
+
+                tbody.innerHTML = apps.map(app => `
+                    <tr>
+                        <td>${app.job_title}</td>
+                        <td>${app.name}</td>
+                        <td><a href="mailto:${app.email}">${app.email}</a></td>
+                        <td>${app.portfolio_url ? `<a href="${app.portfolio_url}" target="_blank">Link</a>` : '-'}</td>
+                        <td>${formatDate(app.created_at)}</td>
+                        <td>
+                            <a href="${API_CONFIG.BASE_URL}/${app.resume_path}" target="_blank" class="action-btn">
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                console.error('Error loading applications:', err);
+            }
+        }
+
+        loadApps();
+    </script>
+    <script src="js/admin_toggle.js"></script>
+</body>
+
+</html>
