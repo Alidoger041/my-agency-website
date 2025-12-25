@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximizing Performance - TechNex Blog</title>
+
+    <!-- CSS and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #71717a;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        .post-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #09090b;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e4e4e7;
+            margin-bottom: 3rem;
+            color: #71717a;
+            font-size: 0.9rem;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 450px;
+            background: #f4f4f5;
+            border-radius: 24px;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #d4d4d8;
+        }
+
+        .post-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #27272a;
+        }
+
+        .post-content p {
+            margin-bottom: 2rem;
+        }
+
+        .post-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: #09090b;
+        }
+
+        .post-content blockquote {
+            border-left: 4px solid #000;
+            padding-left: 2rem;
+            margin: 3rem 0;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #09090b;
+        }
+
+        @media (max-width: 768px) {
+            .post-container {
+                margin: 4rem auto;
+            }
+
+            .post-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="custom-cursor"></div>
+
+    <article class="post-container">
+        <a href="blog.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Blog
+        </a>
+
+        <header class="post-header">
+            <div class="fade-in">
+                <h1>Maximizing Performance: Optimizing Modern Web Apps for Core Web Vitals</h1>
+                <div class="post-meta">
+                    <span><i class="fa-solid fa-calendar"></i> Dec 5, 2025</span>
+                    <span><i class="fa-solid fa-user"></i> Alex Rivers</span>
+                    <span><i class="fa-solid fa-clock"></i> 10 min read</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="post-image fade-in">
+            <i class="fa-solid fa-code"></i>
+        </div>
+
+        <div class="post-content fade-in">
+            <p>In 2025, performance is no longer a luxury—it’s a prerequisite for success. Google’s Core Web Vitals have
+                become the industry standard for measuring user experience, and a delay of even 100 milliseconds can
+                result in a significant drop in engagement and revenue. For TechNex, performance is a fundamental pillar
+                of our development process.</p>
+
+            <p>Optimizing modern web applications requires a holistic approach that goes beyond just minifying CSS and
+                JavaScript. It's about how the browser parses, paints, and interacts with your code.</p>
+
+            <blockquote>
+                "Speed is the most important feature. If your application is slow, its other features don't matter."
+            </blockquote>
+
+            <h2>Understanding the Metrics</h2>
+            <p>We focus on three primary metrics: Largest Contentful Paint (LCP), First Input Delay (FID), and
+                Cumulative Layout Shift (CLS). LCP measures loading performance, FID measures interactivity, and CLS
+                measures visual stability. Achieving "Good" scores in all three is essential for both SEO and user
+                satisfaction.</p>
+
+            <h2>Strategy 1: Edge Computing & CDN Strategy</h2>
+            <p>To achieve lightning-fast LCP, we move computation as close to the user as possible. By leveraging edge
+                functions and a robust Content Delivery Network (CDN), we can serve static assets and even dynamic
+                content with minimal latency, regardless of where the user is located.</p>
+
+            <h2>Strategy 2: Smart Hydration & Prefetching</h2>
+            <p>Modern frameworks can be heavy. We implement "islands" architecture and selective hydration to ensure the
+                browser only downloads and executes the JavaScript that is absolutely necessary for the current view.
+                Combine this with intelligent prefetching of upcoming routes, and the experience feels instantaneous.
+            </p>
+
+            <h2>Strategy 3: Image & Asset Optimization</h2>
+            <p>Images often make up the bulk of a page's weight. We use AVIF and WebP formats, along with responsive
+                image sets and lazy-loading, to ensure that we're never serving more bytes than the user's viewport
+                requires.</p>
+
+            <h2>Conclusion</h2>
+            <p>Performance optimization is a never-ending journey. By staying ahead of the latest technical strategies
+                and maintaining a "performance-first" culture, you ensure that your digital presence remains competitive
+                in an increasingly fast-paced world.</p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechNex Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

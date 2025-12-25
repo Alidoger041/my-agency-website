@@ -1,0 +1,66 @@
+2025-12-23 09:01:57 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at D:\New folder (5)\node_modules\xss-clean\lib\index.js:8:30
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:531:6)
+    at xXssProtectionMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:311:3)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:529:6)
+    at xPoweredByMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:304:3)
+2025-12-23 09:01:58 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at D:\New folder (5)\node_modules\xss-clean\lib\index.js:8:30
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:531:6)
+    at xXssProtectionMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:311:3)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:529:6)
+    at xPoweredByMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:304:3)
+2025-12-23 09:02:35 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at D:\New folder (5)\node_modules\xss-clean\lib\index.js:8:30
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:531:6)
+    at xXssProtectionMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:311:3)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:529:6)
+    at xPoweredByMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:304:3)
+2025-12-23 09:02:35 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at D:\New folder (5)\node_modules\xss-clean\lib\index.js:8:30
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:531:6)
+    at xXssProtectionMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:311:3)
+    at internalNext (D:\New folder (5)\node_modules\helmet\index.cjs:529:6)
+    at xPoweredByMiddleware (D:\New folder (5)\node_modules\helmet\index.cjs:304:3)
+2025-12-25 01:01:43 [error]: ForbiddenError: invalid csrf token
+    at csrf (D:\New folder (5)\node_modules\csurf\index.js:112:19)
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at read (D:\New folder (5)\node_modules\body-parser\lib\read.js:43:5)
+    at urlencodedParser (D:\New folder (5)\node_modules\body-parser\lib\types\urlencoded.js:58:5)
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+2025-12-25 01:01:47 [error]: ForbiddenError: invalid csrf token
+    at csrf (D:\New folder (5)\node_modules\csurf\index.js:112:19)
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
+    at D:\New folder (5)\node_modules\router\index.js:297:9
+    at processParams (D:\New folder (5)\node_modules\router\index.js:582:12)
+    at next (D:\New folder (5)\node_modules\router\index.js:291:5)
+    at read (D:\New folder (5)\node_modules\body-parser\lib\read.js:43:5)
+    at urlencodedParser (D:\New folder (5)\node_modules\body-parser\lib\types\urlencoded.js:58:5)
+    at Layer.handleRequest (D:\New folder (5)\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\New folder (5)\node_modules\router\index.js:342:13)
